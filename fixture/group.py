@@ -4,7 +4,6 @@ class GroupHelper:
         self.app = app
 
     def get_group_list(self):
-        group_list = []
         self.open_group_editor()
         #открыть диалог
         tree = self.group_editor.window(auto_id="uxAddressTreeView")
@@ -18,8 +17,9 @@ class GroupHelper:
 
 
     def add_new_group(self, name):
-        self.open_group_editor(auto_id="uxNewAddressButton").click()
-        input = self.group_editor.wimdow(class_name="Edit")
+        self.open_group_editor()
+        self.group_editor.window(auto_id="uxNewAddressButton").click()
+        input = self.group_editor.window(class_name="Edit")
         #поле ввода
         input.set_text(name)
         # ввели имя
